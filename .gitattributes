@@ -1,0 +1,14 @@
+*.pl	filter=rcs-keywords
+*.pm	filter=rcs-keywords
+*.php	filter=rcs-keywords
+*.sql	filter=rcs-keywords
+*.sh	filter=rcs-keywords
+*.ksh	filter=rcs-keywords
+*.cfg	filter=rcs-keywords
+*.config	filter=rcs-keywords
+*.properties	filter=rcs-keywords
+*.c	filter=rcs-keywords
+*.h	filter=rcs-keywords
+*.java	filter=rcs-keywords
+*.md	filter=rcs-keywords
+*.txt	filter=rcs-keywords
