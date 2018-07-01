@@ -19,6 +19,8 @@ to the dockerfile as build argument VERSION
 rel=${1:-testing}
 git clone https://github.com/Tommi2Day/ipsymcon-docker.git
 cd ipsymcon-docker
+#as of Jun2018 for testing(symcon5) checkout branch symcon5
+git checkout symcon5
 docker build --build-arg VERSION=$rel -t tommi2day/symcon:$rel .
 ```
 
