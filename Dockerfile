@@ -6,7 +6,7 @@
 # Based on Dockerfile from Dieter Poessling (https://www.symcon.de/forum/threads/26294-IP-Symcon-via-Docker-Engine?p=259037#post259037)
 # -----------------------------------------------------------------------------
 
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 
 # Skip install dialogues
@@ -17,7 +17,7 @@ ENV HOME /root
 ARG VERSION
 
 RUN \
-    apt-get update && apt-get -y upgrade && apt-get -y install wget
+    apt-get update && apt-get -y upgrade && apt-get -y install wget gnupg2 language-pack-de
     
 RUN \
     if [ -z "$VERSION" ]; then VERSION="stable"; fi && \
@@ -37,10 +37,7 @@ RUN \
     
 #Setup locale
 #Change to your location
-RUN \
-    locale-gen de_DE.UTF-8 &&\
-    locale-gen en_US.UTF-8 &&\
-    dpkg-reconfigure locales
+RUN dpkg-reconfigure locales
 
 #Setup timezone
 #Change for your timezone
