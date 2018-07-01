@@ -17,13 +17,13 @@ ENV HOME /root
 ARG VERSION
 
 RUN \
-    apt-get update && apt-get -y upgrade && apt-get -y install wget
+    apt-get update && apt-get -y upgrade && apt-get -y install wget 
     
 RUN \
     if [ -z "$VERSION" ]; then VERSION="stable"; fi && \
     wget -qO - http://apt.ip-symcon.de/symcon.key | apt-key add - && \
     echo "deb [arch=amd64] http://apt.ip-symcon.de/ $VERSION ubuntu" >> /etc/apt/sources.list && \
-    apt-get update && apt-get -y install symcon 
+    apt-get update && apt-get -y install symcon locales tzdata 
 
 #default configurarition
 COPY .symcon /root/
