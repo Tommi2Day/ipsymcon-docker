@@ -17,7 +17,7 @@ ENV HOME /root
 ARG VERSION
 
 RUN \
-    apt-get update && apt-get -y upgrade && apt-get -y install wget gnupg2 language-pack-de
+    apt-get update && apt-get -y upgrade && apt-get -y install wget gnupg2 locales tzdata language-pack-de language-pack-en
     
 RUN \
     if [ -z "$VERSION" ]; then VERSION="stable"; fi && \
@@ -35,10 +35,6 @@ RUN \
 RUN \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
     
-#Setup locale
-#Change to your location
-RUN dpkg-reconfigure locales
-
 #Setup timezone
 #Change for your timezone
 RUN echo "Europe/Berlin" > /etc/timezone; dpkg-reconfigure -f noninteractive tzdata
