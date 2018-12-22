@@ -16,10 +16,10 @@ Docker Sources: https://github.com/Tommi2Day/ipsymcon-docker
 You need to handover the apt repository branch of symcon ("stable", "beta" or "testing") 
 to the dockerfile as build argument VERSION
 ```
-rel=${1:-testing}
+rel=${1:-stable}
 git clone https://github.com/Tommi2Day/ipsymcon-docker.git
 cd ipsymcon-docker
-#as of Jun2018 for testing(symcon5) checkout branch symcon5
+#as of Dez2018 checkout branch symcon5
 git checkout symcon5
 docker build --build-arg VERSION=$rel -t tommi2day/symcon:$rel .
 ```
@@ -30,8 +30,8 @@ docker build --build-arg VERSION=$rel -t tommi2day/symcon:$rel .
 * /root
 
 ### exposed Ports
-* 3777 
-* 82
+* 3777 API, Console
+* 2001 2010 5544 for Homematic
 
 ### Run on Unix
 

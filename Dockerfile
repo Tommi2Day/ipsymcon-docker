@@ -49,6 +49,10 @@ VOLUME \
     /var/lib/symcon
 
 EXPOSE  3777 82
+
+#homematic
+EXPOSE 2001 2010 5544
+
 WORKDIR /root
 ENTRYPOINT ["/usr/bin/docker_entrypoint.sh"]
 
